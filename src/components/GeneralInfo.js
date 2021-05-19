@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class General extends Component {
+class GeneralInfo extends Component {
     constructor (props) {
         super(props);
 
@@ -11,14 +11,26 @@ class General extends Component {
             isEditOn: false
         }
 
-        this.handleChange = this.handleChange.bind(this);
+        this.handleNameChange = this.handleNameChange.bind(this);
+        this.handleEmailChange = this.handleEmailChange.bind(this);
+        this.handlePhoneChange = this.handlePhoneChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(e) {
+    handleNameChange(e) {
         this.setState({
-            name: e.target.value,
-            email: e.target.value,
+            name: e.target.value
+        })
+    }
+
+    handleEmailChange(e) {
+        this.setState({
+            email: e.target.value
+        })
+    }
+
+    handlePhoneChange(e) {
+        this.setState({
             phone: e.target.value
         })
     }
@@ -31,24 +43,27 @@ class General extends Component {
     }
 
     render() {
+        const { name, email, phone } = this.state;
+
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Full Name:
-                    <input type="text" value={this.state.name} onChange={this.handleChange} />
+                    <input type="text" value={name} onChange={this.handleNameChange} />
                 </label>
                 <label>
                     Email:
-                    <input type="text" value={this.state.email} onChange={this.handleChange} />
+                    <input type="text" value={email} onChange={this.handleEmailChange} />
                 </label>
                 <label>
                     Phone:
-                    <input type="text" value={this.state.phone} onChange={this.handleChange} />
+                    <input type="text" value={phone} onChange={this.handlePhoneChange} />
                 </label>
+                {/* <input type="button" value="Edit" /> */}
                 <input type="submit" value="Submit" />
             </form>
         )
     }
 }
 
-export default General;
+export default GeneralInfo;

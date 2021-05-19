@@ -1,11 +1,11 @@
 import React, {Component} from "react";
-import General from "./components/General";
+import GeneralInfo from "./components/GeneralInfo";
 
 class App extends Component {
   render () {
     return (
     <div>
-      <General />
+      <GeneralInfo />
      
     </div>
     )
